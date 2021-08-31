@@ -1,0 +1,51 @@
+.terminal-head{
+    max-width: 530px;
+    padding: 3px;
+    background-color: #f0f0f0;
+    text-align: center;
+    color: black;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+.terminal-wrap{
+    padding: 10px;
+    color: #f0f0f0;
+    text-shadow: #000 0px 1px 0px;
+    font-family: "Consolas", "Courier New", "Courier";
+    font-size: 1.45em;
+    font-weight: 500;
+    text-align: left;
+    transition: all 0.5s ease-out;
+   
+}
+.terminal{
+    max-width: 530px;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 20px 70px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+svg.radial-progress {
+    height: auto;
+    max-width: 200px;
+    padding: 1em;
+    transform: rotate(-90deg);
+    width: 100%;
+  }
+  
+  svg.radial-progress circle {
+    fill: rgba(0,0,0,0);
+    stroke: rgb(209, 42, 42);
+    stroke-dashoffset: 219.91148575129; 
+    stroke-width: 5;
+  }
+  
+  svg.radial-progress circle.incomplete { opacity: 0.25; }
+  
+  svg.radial-progress circle.complete { stroke-dasharray: 219.91148575129; }
+  
+  svg.radial-progress text {
+    fill: rgb(209, 42, 42);
+    text-anchor: middle;
+  }
