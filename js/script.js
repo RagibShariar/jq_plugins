@@ -1,23 +1,23 @@
 // counter js
 $(document).ready(function () {
    $(".counter").counterUp({
-    //   delay: 10,
-      time: 3000
+      //   delay: 10,
+      time: 3000,
    });
 });
 
 // Typed js
 var typed = new Typed("#typed", {
    strings: [
-       "Welcome to Shikhbe Shobai...",
-       "Try it out!",
-       "Typed.js is a JavaScript library",
-       "it typos",
-       "It types out sentences",
-       "Have a great day!"
-    ],
-//    cursorChar: "_",
-//    suffle: true,
+      "Welcome to Shikhbe Shobai...",
+      "Try it out!",
+      "Typed.js is a JavaScript library",
+      "it typos",
+      "It types out sentences",
+      "Have a great day!",
+   ],
+   //    cursorChar: "_",
+   //    suffle: true,
    loop: true,
    backSpeed: 30,
    typeSpeed: 30,
@@ -49,38 +49,89 @@ AOS.init({
 });
 // aos 2 end
 
-// animated circle 
-$('svg.radial-progress').each(function( index, value ) { 
-    $(this).find($('circle.complete')).removeAttr( 'style' );
-  });
-$(window).scroll(function(){
-    $('svg.radial-progress').each(function( index, value ) { 
-      if ( 
-          $(window).scrollTop() > $(this).offset().top - ($(window).height() * 0.75) &&
-          $(window).scrollTop() < $(this).offset().top + $(this).height() - ($(window).height() * 0.25)
-      ) {
-          // Get percentage of progress
-          percent = $(value).data('percentage');
-          // Get radius of the svg's circle.complete
-          radius = $(this).find($('circle.complete')).attr('r');
-          // Get circumference (2πr)
-          circumference = 2 * Math.PI * radius;
-          // Get stroke-dashoffset value based on the percentage of the circumference
-          strokeDashOffset = circumference - ((percent * circumference) / 100);
-          // Transition progress for 1.25 seconds
-          $(this).find($('circle.complete')).animate({'stroke-dashoffset': strokeDashOffset}, 1250);
-      }
-    });
-  }).trigger('scroll');
+// animated circle
+$("svg.radial-progress").each(function (index, value) {
+   $(this).find($("circle.complete")).removeAttr("style");
+});
+$(window)
+   .scroll(function () {
+      $("svg.radial-progress").each(function (index, value) {
+         if (
+            $(window).scrollTop() >
+               $(this).offset().top - $(window).height() * 0.75 &&
+            $(window).scrollTop() <
+               $(this).offset().top +
+                  $(this).height() -
+                  $(window).height() * 0.25
+         ) {
+            // Get percentage of progress
+            percent = $(value).data("percentage");
+            // Get radius of the svg's circle.complete
+            radius = $(this).find($("circle.complete")).attr("r");
+            // Get circumference (2πr)
+            circumference = 2 * Math.PI * radius;
+            // Get stroke-dashoffset value based on the percentage of the circumference
+            strokeDashOffset = circumference - (percent * circumference) / 100;
+            // Transition progress for 1.25 seconds
+            $(this)
+               .find($("circle.complete"))
+               .animate({ "stroke-dashoffset": strokeDashOffset }, 1250);
+         }
+      });
+   })
+   .trigger("scroll");
 
+//   YTPlayer
+$(document).ready(function () {
+   jQuery("#bgndVideo").YTPlayer({
+      containment: "body",
+      mute: true,
+      autoPlay: true,
+      opacity: 0.5,
+      startAt: 0,
+      showControls: false,
+   });
+});
 
-  $(document).ready(function(){
-     jQuery("#bgndVideo").YTPlayer({
-      containment:'body',              
-      mute:true, 
-      autoPlay:true, 
-      opacity:0.5, 
-      startAt:0, 
-      showControls:false
-     });
-  });
+// slick slider
+$(document).ready(function () {
+   $(".slick").slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoPlay: true,
+      autoplaySpeed: 1000,
+      responsive: [
+         {
+            breakpoint: 1024,
+            settings: {
+               slidesToShow: 2,
+               slidesToScroll: 1,
+               infinite: true,
+               dots: true,
+            },
+         },
+         {
+            breakpoint: 600,
+            settings: {
+               arrows:false,
+               slidesToShow: 1,
+               slidesToScroll: 1,
+            },
+         },
+         {
+            breakpoint: 480,
+            settings: {
+               arrows: false,
+               slidesToShow: 1,
+               slidesToScroll: 1,
+            },
+         },
+         // You can unslick at a given breakpoint now by adding:
+         // settings: "unslick"
+         // instead of a settings object
+      ],
+   });
+});
