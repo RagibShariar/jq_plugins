@@ -72,3 +72,15 @@ $(window).scroll(function(){
       }
     });
   }).trigger('scroll');
+
+
+  $(document).ready(function(){
+     jQuery("#bgndVideo").YTPlayer({
+      containment:'body',              
+      mute:true, 
+      autoPlay:true, 
+      opacity:0.5, 
+      startAt:0, 
+      showControls:false
+     });
+  });
